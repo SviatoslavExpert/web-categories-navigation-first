@@ -8,6 +8,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<User> authorize(User user) {
         user.setFirstName("Anton");
-        return Optional.empty();
+        return Optional.ofNullable(user);
     }
 }
