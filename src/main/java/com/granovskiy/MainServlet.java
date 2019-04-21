@@ -39,10 +39,26 @@ public class MainServlet extends HttpServlet {
         ViewModel vm = controller.process(request);
         processViewModel(vm, req, resp);
     }
+    /* controller.process() returns an object of class ViewModel, the new object has properties
+        of ViewModel class (String view, Map<String, Object> attributes, String REDIRECT_TEMPLATE) */
 
     private void processViewModel(ViewModel vm, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //vm.getAttributes().forEach((k, v) -> req.setAttribute(k, v));
         vm.getAttributes().forEach(req::setAttribute);
         req.getRequestDispatcher(vm.getRedirectUri()).forward(req, resp);
     }
+    /*  vm.getAttributes().forEach(req::setAttribute);
+         - the attributes are taken from vm object map (keys and values),
+        those attributes (keys and values) are set into req variable
+
+        req.getRequestDispatcher(vm.getRedirectUri()).forward(req, resp);
+         - method getRequestDispatcher works for req object,
+        it gets URI from vm object and returns an object of RequestDispatcher type
+
+        forward(req, resp)
+        - forwards a request from a servlet to another resource
+        (servlet, JSP file, or HTML file) on the server.
+
+        https://docs.oracle.com/cd/E17802_01/products/products/servlet/2.3/javadoc/javax/servlet/RequestDispatcher.html
+     */
 }

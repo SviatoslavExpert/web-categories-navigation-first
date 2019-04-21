@@ -12,15 +12,24 @@ public class CategoryServiceImpl implements CategoryService {
     private static List<Category> categories = new ArrayList<>();
 
     static {
-        Product product = new Product("iPhone", "Apple product", 999.99);
+        //  products1
+        List<Product> products1 = new ArrayList<>();
+        Product product1 = new Product("iPhone", "Apple product", 999.99);
         Product product2 = new Product("samsung", "korean product", 700.99);
-        List<Product> products = new ArrayList<>();
-        products.add(product);
-        products.add(product2);
-        Category category = new Category(1L, "Mobile Phones", "Best ever phones");
-        category.setProducts(products);
-        categories.add(category);
-        categories.add(new Category(2L, "Shoes", "Italian shoes"));
+        Product product3 = new Product("huawai", "korean product", 650.99);
+        products1.add(product1);
+        products1.add(product2);
+        products1.add(product3);
+
+        //  category1 and its products
+        Category category1 = new Category(1L, "Mobile Phones", "Best ever phones");
+        category1.setProducts(products1);
+        categories.add(category1);
+
+        //  category2 and its products
+        categories.add(new Category(2L, "Shoes", "Excellent shoes"));
+
+        //  category3 and its products
         categories.add(new Category(3L, "TVs", "Chines TVs"));
     }
 

@@ -9,5 +9,6 @@ public class UserServiceImpl implements UserService {
     public Optional<User> authorize(User user) {
         user.setFirstName("Anton");
         return Optional.ofNullable(user);
+        //   object is created and added to Optional ?
     }
 }
